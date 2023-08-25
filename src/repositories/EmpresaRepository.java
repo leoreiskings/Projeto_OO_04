@@ -17,7 +17,8 @@ public class EmpresaRepository implements IRepository<Empresa>{
 		
 		//abrindo conexão com o banco de dados
 		Connection connection = ConnectionFactory.getConnection();
-		PreparedStatement statement = connection.prepareStatement("insert into empresa(nomefantasia,		razaosocial, cnpj) values(?,?,?)");
+		PreparedStatement statement = connection.prepareStatement("insert into empresa(nomefantasia,	 razaosocial, cnpj) "
+				+ "values(?,?,?)");
 		
 		statement.setString(1, obj.getNomeFantasia());
 		statement.setString(2, obj.getRazaoSocial());
