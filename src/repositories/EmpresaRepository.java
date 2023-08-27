@@ -116,7 +116,7 @@ public class EmpresaRepository implements IRepository<Empresa>{
 		Empresa empresa = null;
 		
 		//verificando se alguma empresa foi encontrada
-		if(resultSet.next()) { //se houver registro, leia..
+		if(resultSet.next()) { //se houver registro, leia.. // "se condicao  = true entao entra"
 			
 			empresa = new Empresa(); //instanciando a variável
 			empresa.setIdEmpresa(resultSet.getInt("idempresa"));

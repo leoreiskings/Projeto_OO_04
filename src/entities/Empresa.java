@@ -9,14 +9,11 @@ public class Empresa {
 	private String razaoSocial;
 	private String cnpj;
 	
-	private List<Funcionario> funcionarios;
+	private List<Funcionario> funcionarios; // 1 Empresa TEM N Funcionarios  
 	
 	public Empresa() {
 		//TODO Auto-generated constructor stub
 	}
-
-	
-	
 	
 	public Empresa(Integer idEmpresa, String nomeFantasia, String razaoSocial, String cnpj,
 			List<Funcionario> funcionarios) {
@@ -27,9 +24,6 @@ public class Empresa {
 		this.cnpj = cnpj;
 		this.funcionarios = funcionarios;
 	}
-
-
-
 
 	public Integer getIdEmpresa() {
 		return idEmpresa;

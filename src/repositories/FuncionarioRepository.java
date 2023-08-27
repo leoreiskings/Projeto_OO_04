@@ -20,7 +20,8 @@ public class FuncionarioRepository implements IRepository<Funcionario> {
 		Connection connection = ConnectionFactory.getConnection();
 		
 		//escrevendo uma sentença SQL para cadastrar um funcionário
-		PreparedStatement statement = connection.prepareStatement("insert into funcionario(nome, cpf, matricula, idempresa) values(?, ?, ?, ?)");
+		PreparedStatement statement = connection.prepareStatement("insert into funcionario(nome, cpf, matricula, idempresa) "
+				+ "values(?, ?, ?, ?)");
 
 		statement.setString(1, obj.getNome());
 		statement.setString(2, obj.getCpf());
@@ -40,8 +41,8 @@ public class FuncionarioRepository implements IRepository<Funcionario> {
 		Connection connection = ConnectionFactory.getConnection();
 		
 		//Executando uma sentença SQL no banco de dados
-		PreparedStatement statement = connection.prepareStatement("update funcionario set nome=?, cpf=?, matricula=?, idempresa=? "
-				+ "where idfuncionario=?");
+		PreparedStatement statement = connection.prepareStatement("update funcionario "
+				+ "set nome=?, cpf=?, matricula=?, idempresa=? " + "where idfuncionario=?");
 				statement.setString(1, obj.getNome());
 				statement.setString(2, obj.getCpf());
 				statement.setString(3, obj.getMatricula());
@@ -61,7 +62,8 @@ public class FuncionarioRepository implements IRepository<Funcionario> {
 		Connection connection = ConnectionFactory.getConnection();
 		
 		// executando uma sentença SQL no banco de dados
-		PreparedStatement statement = connection.prepareStatement("delete from funcionario where idfuncionario = ?");
+		PreparedStatement statement = connection.prepareStatement("delete from funcionario "
+				+ "where idfuncionario = ?");
 		
 		statement.setInt(1, obj.getIdFuncionario());
 		
@@ -98,10 +100,13 @@ public class FuncionarioRepository implements IRepository<Funcionario> {
 					
 						funcionario.setEmpresa(new Empresa());
 						
+						//recuperando dados do Funcionario.
 						funcionario.setIdFuncionario(resultSet.getInt("idfuncionario"));
 						funcionario.setNome(resultSet.getString("nome"));
 						funcionario.setCpf(resultSet.getString("cpf"));
 						funcionario.setMatricula(resultSet.getString("matricula"));
+						
+						//recuperando dados da Empresa em que está cadastrado aquele Funcionario.
 						funcionario.getEmpresa().setIdEmpresa(resultSet.getInt("idempresa"));
 						funcionario.getEmpresa().setNomeFantasia(resultSet.getString("nomefantasia"));
 						funcionario.getEmpresa().setRazaoSocial(resultSet.getString("razaosocial"));
@@ -122,7 +127,8 @@ public class FuncionarioRepository implements IRepository<Funcionario> {
 		// abrindo conexão com o banco de dados
 		Connection connection = ConnectionFactory.getConnection();
 
-		PreparedStatement statement = connection.prepareStatement("select * from funcionario where idfuncionario = ?");
+		PreparedStatement statement = connection.prepareStatement("select * from funcionario "
+				+ "where idfuncionario = ?");
 		
 		statement.setInt(1, id);
 		

@@ -123,7 +123,7 @@ public class FuncionarioController implements IController {
 
 			} else {
 
-				System.out.println("\nFuncionário não encontrada, verifique o ID informado.");
+				System.out.println("\nFuncionário não encontrado. Verifique o ID informado!");
 
 			}
 		} catch (Exception e) {
@@ -144,10 +144,13 @@ public class FuncionarioController implements IController {
 			
 			for (Funcionario funcionario : funcionarioRepository.obterTodos()) {
 				
+				//retornando os dados do funcionario
 				System.out.println("Id do funcionário.........: " + funcionario.getIdFuncionario());
 				System.out.println("Nome do funcionário.......: " + funcionario.getNome());
 				System.out.println("CPF.......................: " + funcionario.getCpf());
 				System.out.println("Matrícula.................: " + funcionario.getMatricula());
+				
+				//retornando os dados da Empresa do Funcionario
 				System.out.println("Id da empresa.............: " + funcionario.getEmpresa().getIdEmpresa());
 				System.out.println("Nome fantasia.............: " + funcionario.getEmpresa().getNomeFantasia());
 				System.out.println("Razão social..............: " + funcionario.getEmpresa().getRazaoSocial());

@@ -24,6 +24,7 @@ public class EmpresaController implements IController {
 			System.out.println("\nCADASTRO DE EMPRESA\n");
 
 			Empresa empresa = new Empresa();
+			
 			System.out.print("Informe o nome fantasia.......: ");
 			empresa.setNomeFantasia(scanner.nextLine());
 
@@ -78,15 +79,11 @@ public class EmpresaController implements IController {
 				System.out.println("\nEmpresa atualizada com sucesso.");
 
 			} else {
-
 				System.out.println("\nEmpresa não encontrada. Verifique o ID informado!");
-
 			}
 
 		} catch (Exception e) {
-
 			System.out.println("\nOcorreu um erro: " + e.getMessage());
-
 		}
 
 	}
@@ -110,6 +107,7 @@ public class EmpresaController implements IController {
 				// excluindo a empresa no banco de dados
 				empresaRepository.excluir(empresa);
 				System.out.println("\nEmpresa excluída com sucesso.");
+				
 			} else {
 				System.out.println("\nEmpresa não encontrada,	verifique o ID informado.");
 			}
@@ -128,11 +126,13 @@ public class EmpresaController implements IController {
 			EmpresaRepository empresaRepository = new EmpresaRepository();
 
 			for (Empresa empresa : empresaRepository.obterTodos()) {
+				
 				System.out.println("Id da empresa.......: " + empresa.getIdEmpresa());
 				System.out.println("Nome Fantasia.......: " + empresa.getNomeFantasia());
 				System.out.println("Razão Social........: " + empresa.getRazaoSocial());
 				System.out.println("CNPJ................: " + empresa.getCnpj());
-				System.out.println("---");
+				 System.out.println("---");
+				
 			}
 
 		} catch (Exception e) {
