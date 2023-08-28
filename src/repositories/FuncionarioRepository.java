@@ -82,9 +82,9 @@ public class FuncionarioRepository implements IRepository<Funcionario> {
 		
 		//executando uma sentença SQL no banco de dados
 		PreparedStatement statement = connection.prepareStatement("select f.idfuncionario, f.nome, f.cpf, f.matricula, " + 
-				"e.idempresa, e.nomefantasia, e.razaosocial, e.cnpj " +	
-				"from funcionario f inner join empresa" +
-				"e on e.idempresa = f.idempresa");
+				" e.idempresa, e.nomefantasia, e.razaosocial, e.cnpj " +	
+				" from funcionario f inner join empresa " +
+				" e on e.idempresa = f.idempresa ");
 		
 				//executando a consulta e lendo o resultado
 				ResultSet resultSet = statement.executeQuery();

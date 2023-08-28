@@ -69,7 +69,7 @@ public class EmpresaRepository implements IRepository<Empresa>{
 		//abrindo conexão com o banco de dados
 		Connection connection = ConnectionFactory.getConnection();
 		
-		PreparedStatement statement = connection.prepareStatement("select * from empresa	order by nomefantasia");
+		PreparedStatement statement = connection.prepareStatement("select * from empresa order by nomefantasia");
 		
 				//capturar os registros obtidos do banco de dados
 				ResultSet resultSet = statement.executeQuery();

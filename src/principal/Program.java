@@ -3,6 +3,7 @@ package principal;
 import java.util.Scanner;
 
 import controllers.EmpresaController;
+import controllers.FuncionarioController;
 
 public class Program {
 
@@ -13,7 +14,8 @@ public class Program {
 		int opcao;		
 		
 		EmpresaController empresaController = new EmpresaController();
-
+		FuncionarioController funcionarioController = new FuncionarioController();
+		
 		try {
 			
 			do {
@@ -22,7 +24,11 @@ public class Program {
 				System.out.println("(2) Atualizar empresas");
 				System.out.println("(3) Excluir empresas");
 				System.out.println("(4) Consultar empresas");				
-	            System.out.println("(5) Encerrar Programa.");
+				System.out.println("(5) Cadastrar funcionários");
+				System.out.println("(6) Atualizar funcionários");
+				System.out.println("(7) Excluir funcionários");
+				System.out.println("(8) Consultar funcionários");
+	            System.out.println("(9) Encerrar Programa.");
 	            System.out.print("\nEscolha a opção desejada...: ");
 	            
 	            opcao = scanner.nextInt();
@@ -51,7 +57,32 @@ public class Program {
 	                    empresaController.consultar();
 	                    
 	                    break;
-	                case 5:
+	                
+	                case 5:	                	
+	                	System.out.println("Opção: Cadastrar funcionários");
+	                	funcionarioController.cadastrar();
+	                	
+	                	break;
+	                	
+	                case 6:	                	
+	                	System.out.println("Opção: Atualizar funcionários");
+	                	funcionarioController.atualizar();
+	                	
+	                	break;
+	                
+	                case 7:	                	
+	                	System.out.println("Opção: Excluir funcionários");
+	                	funcionarioController.excluir();
+	                	
+	                	break;
+	                
+	                case 8:	                	
+	                	System.out.println("Opção: Consultar funcionários");
+	                	funcionarioController.consultar();
+	                	
+	                	break;
+	                	
+	                case 9:
 	                    System.out.println("Encerrando o programa...");
 	                    break;
 	                
@@ -60,7 +91,7 @@ public class Program {
 	            }
 
 	            System.out.println(); // Linha em branco para separar as iterações
-	        } while (opcao != 5);
+	        } while (opcao != 9);
 
 	        System.out.println("Programa encerrado.");
 			
